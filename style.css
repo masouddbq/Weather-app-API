@@ -1,0 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+input{
+    background-color: transparent;
+    outline: none;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+button{
+    background-color: rgba(255, 255, 255, 0.459);
+    cursor: pointer;
+    padding:2px 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+button:hover{
+    background-color: white;
+    color: gray;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: linear-gradient(to right, #441e1e, #012b2b);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+.container h1{
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+
+
+
+.weather-info{
+    width: 300px;
+    height:500px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.weather-info h2{
+    font-size: 20px;
+    margin-top: 30px;
+    font-weight: 600;
+    color: white;
+}
+
+.weather-info h3{
+    font-size: 20px;
+    margin-top: 30px;
+    font-weight: 600;
+    color: gainsboro;
+}
+
+.weather-info img{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+}
+
+ .weather-info .weather-icon{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+ }
+
+ .weather-info .weather-temp{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+ }
+
+.weather-icon{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.weather-temp{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    color: black;
+}
+
+.weather-desc{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    color: black;
+}
+
+
+
+.box{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background:linear-gradient(to left, #441e1e, #012b2b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
