@@ -14,6 +14,10 @@ const temp =document.querySelector('.temp')
 const degree =document.querySelector('.degree')
 const feelsLike =document.querySelector('.feels-like')
 const humidity =document.querySelector('.humidity')
+const windNum = document.querySelector('.wind-num')
+const tempMax = document.querySelector('.max-num')
+const levelNum = document.querySelector('.level-num')
+const infoBox = document.querySelector('.weather-info')
 
 // let weatherImage = document.querySelector(".weather-icon img");
 // let weatherTemptext = document.querySelector(".weather-temp p");
@@ -97,6 +101,7 @@ btn.addEventListener("click", () => {
     .then((data) => {
       console.log(data);
       
+      infoBox.classList.remove('hide')
       cityTitle.textContent = city.value.toUpperCase()
       dateLine.classList.remove('hide')
       descText.textContent = `It seems ${data.weather[0].description}`;
@@ -105,6 +110,9 @@ btn.addEventListener("click", () => {
       degree.classList.remove('hide')
       feelsLike.textContent = `feels like : ${data.main.feels_like} /`
       humidity.textContent = `humidity : ${data.main.humidity} %`
+      windNum.textContent  =  `${data.wind.speed} km/h`;
+      tempMax.textContent  =  `${data.main.temp_max} °C`
+      levelNum.textContent  =  `${data.main.sea_level} ft`;
 
       
       let temperature = data.main.temp;
