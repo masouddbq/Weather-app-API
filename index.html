@@ -9,21 +9,60 @@
 <body>
 
     <div class="container">
-        <h1>Weather App with API</h1>
         <div class="box">
-            <input type="text" placeholder="Enter city name">
-            <button>Search</button>
+            <div class="box-title">
+                <h1>Weather app</h1>
+            </div>
+            <div class="box-tools">
+                <input type="text" placeholder="Enter city name">
+                <button>Search</button>
+            </div>
         </div>
         <div class="weather-info">
-            <div class="weather-icon">
-                <img src="" alt="">
+            <div class="today">
+                <div class="primary-info">
+                    <div>
+                        <h1 class="city"></h1>
+                        <div class="date hide">
+                            <span class="month"></span>
+                            <span class="month-day"></span>
+                            <span class="week-day"></span>
+                        </div>
+                    </div>
+                    <div class="weather-icon">
+                        <p class="weather-desc hide"></p>
+                        <img src="./images/vecteezy_sunny-weather-icon-with-clouds-sunshine-and-sky-on_69651439.png" alt="">
+                    </div>
+                </div>
+                <div class="secondary-info">
+                    <div>
+                        <span class="temp"></span>
+                        <span class="degree hide">°C</span>
+                    </div>
+                    <div>
+                        <span class="feels-like"></span>
+                        <span class="humidity"></span>
+                    </div>
+                </div>
+                <div class="five-hours"></div>
+                <div class="detail">
+                    <div class="parameter">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="next-days">
+            </div>
+            <!-- <div class="weather-icon">
+                <img src="./images/cloudy.png" alt="">
             </div>
             <div class="weather-temp">
-                <h2></h2>
+                <h2>City name</h2>
+                <p></p>
             </div>
             <div class="weather-desc">
-                <h3></h3>
-            </div>
+                <h3>information</h3>
+            </div> -->
         </div>
     </div>
     
