@@ -7,19 +7,18 @@ const dayNum = currentDate.getDate();
 let monthTitle = document.querySelector(".month");
 let dayTitle = document.querySelector(".month-day");
 let weekdayTitle = document.querySelector(".week-day");
-let cityTitle = document.querySelector('.city')
-const dateLine = document.querySelector('.date')
-const descText = document.querySelector('.weather-desc')
-const temp =document.querySelector('.temp')
-const degree =document.querySelector('.degree')
-const feelsLike =document.querySelector('.feels-like')
-const humidity =document.querySelector('.humidity')
-const windNum = document.querySelector('.wind-num')
-const tempMax = document.querySelector('.max-num')
-const levelNum = document.querySelector('.level-num')
-const infoBox = document.querySelector('.weather-info')
+let cityTitle = document.querySelector(".city");
+const dateLine = document.querySelector(".date");
+const temp = document.querySelector(".temp");
+const degree = document.querySelector(".degree");
+const feelsLike = document.querySelector(".feels-like");
+const humidity = document.querySelector(".humidity");
+const windNum = document.querySelector(".wind-num");
+const tempMax = document.querySelector(".max-num");
+const levelNum = document.querySelector(".level-num");
+const infoBox = document.querySelector(".weather-info");
+let weatherImage = document.querySelector(".weather-icon img");
 
-// let weatherImage = document.querySelector(".weather-icon img");
 // let weatherTemptext = document.querySelector(".weather-temp p");
 // let weatherTempCity = document.querySelector(".weather-temp h2");
 // let weatherDesc = document.querySelector(".weather-desc h3");
@@ -91,33 +90,35 @@ const icons = [
 
 monthTitle.textContent = `${months[month]} ,`;
 dayTitle.textContent = `${dayNum} ,`;
-weekdayTitle.textContent = days[weekDay] 
+weekdayTitle.textContent = days[weekDay];
 
 btn.addEventListener("click", () => {
   let cityName = city.value;
-  let api = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=2c946df43b9bdf889b1c7e7fec391216&units=metric`;
+  let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=2c946df43b9bdf889b1c7e7fec391216&units=metric`;
+  
+  
   fetch(api)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      
-      infoBox.classList.remove('hide')
-      cityTitle.textContent = city.value.toUpperCase()
-      dateLine.classList.remove('hide')
-      descText.textContent = `It seems ${data.weather[0].description}`;
-      descText.classList.remove('hide')
-      temp.textContent = Math.round(`${data.main.temp}`)
-      degree.classList.remove('hide')
-      feelsLike.textContent = `feels like : ${data.main.feels_like} /`
-      humidity.textContent = `humidity : ${data.main.humidity} %`
-      windNum.textContent  =  `${data.wind.speed} km/h`;
-      tempMax.textContent  =  `${data.main.temp_max} °C`
-      levelNum.textContent  =  `${data.main.sea_level} ft`;
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
 
+
+        
+    
+      infoBox.classList.remove("hide");
+      cityTitle.textContent = city.value.toUpperCase();
+      dateLine.classList.remove("hide");
+      temp.textContent = Math.round(`${data.list[0].main.temp}`);
+      degree.classList.remove("hide");
+      feelsLike.textContent = `feels like : ${data.list[0].main.feels_like} /`;
+      humidity.textContent = `humidity : ${data.list[0].main.humidity} %`;
+      windNum.textContent = `${data.list[0].wind.speed} km/h`;
+      tempMax.textContent = `${data.list[0].main.temp_max} °C`;
+      levelNum.textContent = `${data.list[0].main.sea_level} ft`;
       
-      let temperature = data.main.temp;
-    //   weatherTemptext.innerHTML = `${temperature}°C feels like ${data.main.feels_like} `;
-    //   weatherTempCity.innerHTML = `${city.value.toUpperCase()}`;
+
+      let temperature = data.list[0].main.temp;
+      
       if (temperature < -5) {
         weatherImage.src = icons[0].icon;
       } else if (temperature <= -3 && temperature > -5) {
@@ -137,7 +138,6 @@ btn.addEventListener("click", () => {
       } else {
         weatherImage.src = icons[8].icon;
       }
-      weatherDesc.innerHTML = `It seems ${data.weather[0].description}`;
       console.log(data.weather.description);
     });
 });

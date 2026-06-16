@@ -54,7 +54,7 @@ img {
     width: 125px;
     height: 125px;
     padding: 10px;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.056), rgba(214, 214, 214, 0.302));
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.056), rgba(109, 109, 109, 0.302));
     border-radius: 50%;
 }
 
@@ -126,11 +126,11 @@ img {
 .today {
     width: 60%;
     height: 100%;
-    border-right: 1px solid gray;
+    border-right: 1px solid rgba(128, 128, 128, 0.13);
     flex-direction: column;
 }
 
-.next-days {
+.next-hours {
     width: 40%;
 }
 
