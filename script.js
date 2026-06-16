@@ -17,6 +17,8 @@ const windNum = document.querySelector(".wind-num");
 const tempMax = document.querySelector(".max-num");
 const levelNum = document.querySelector(".level-num");
 const infoBox = document.querySelector(".weather-info");
+const nextHours = document.querySelector(".next-hours");
+
 let weatherImage = document.querySelector(".weather-icon img");
 
 // let weatherTemptext = document.querySelector(".weather-temp p");
@@ -95,16 +97,14 @@ weekdayTitle.textContent = days[weekDay];
 btn.addEventListener("click", () => {
   let cityName = city.value;
   let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=2c946df43b9bdf889b1c7e7fec391216&units=metric`;
-  
-  
+
   fetch(api)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data);
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
 
-
-        
-    
+      nextHours.innerHTML = '';
+      
       infoBox.classList.remove("hide");
       cityTitle.textContent = city.value.toUpperCase();
       dateLine.classList.remove("hide");
@@ -115,10 +115,33 @@ btn.addEventListener("click", () => {
       windNum.textContent = `${data.list[0].wind.speed} km/h`;
       tempMax.textContent = `${data.list[0].main.temp_max} °C`;
       levelNum.textContent = `${data.list[0].main.sea_level} ft`;
-      
+
+      let forecastDiv = document.createElement("div");
+      forecastDiv.classList.add("forecast");
+
+      for (let index = 0; index < 4; index++) {
+        console.log(data.list[index]);
+
+        const date = new Date(data.list[index].dt * 1000);
+
+        const hours = date.getHours().toString().padStart(2, "0");
+        const minutes = date.getMinutes().toString().padStart(2, "0");
+
+        const interval = document.createElement("li");
+        interval.innerHTML = `
+          <li class="forecast-item">
+            <span class="fc-hour">${hours}:${minutes}</span>
+            <span class="fc-temp">${Math.round(data.list[index].main.temp)}°C</span>
+          </li>
+        `;
+
+        forecastDiv.append(interval);
+      }
+
+      nextHours.append(forecastDiv);
 
       let temperature = data.list[0].main.temp;
-      
+
       if (temperature < -5) {
         weatherImage.src = icons[0].icon;
       } else if (temperature <= -3 && temperature > -5) {
@@ -138,6 +161,5 @@ btn.addEventListener("click", () => {
       } else {
         weatherImage.src = icons[8].icon;
       }
-      console.log(data.weather.description);
     });
 });
