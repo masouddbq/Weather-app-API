@@ -372,4 +372,8 @@ li{
    .fc-temp{
     font-size:24px ;
    }
+
+   .city{
+    letter-spacing:0;
+   }
 }
