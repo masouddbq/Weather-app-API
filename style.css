@@ -297,7 +297,7 @@ li{
 
 @media screen and (width <= 568px){
     h1{
-        font-size:14px;
+        font-size:12px;
         transform:translateX(40px)
     }
 
@@ -308,7 +308,7 @@ li{
     }
 
     input{
-        width:60%;
+        width:100px;
     }
 
     .container{
@@ -328,6 +328,7 @@ li{
     display:flex;
     flex-direction:column;
     overflow:hidden;
+    padding-top:10px;
    }
 
    .today{
@@ -344,6 +345,10 @@ li{
     transform:translateX(0px);
    }
 
+   .secondary-info{
+    width:100vw;
+   }
+
    .detail{
     width:90vw;
    }
@@ -353,11 +358,18 @@ li{
     grid-template-columns:1fr 1fr;
     grid-template-rows:1fr 1fr;
     width:100vw;
-    height:100px;
+    height:200px;
+    overflow:none;
+    transform:translateY(-20px)
    }
 
    .forecast-item{
     width:70%;
-    margin-left:40px;
+    margin-left:30px;
+    height:70px;
+   }
+
+   .fc-temp{
+    font-size:24px ;
    }
 }
