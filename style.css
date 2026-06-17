@@ -251,6 +251,11 @@ li{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.2s ease;
+}
+.forecast-item:hover{
+    box-shadow: 0 0 20px 0px rgba(59, 82, 255, 0.467);
+
 }
 
 .fc-temp{
@@ -288,4 +293,71 @@ li{
 
 .weather-desc h3 {
     color: gray;
+}
+
+@media screen and (width <= 568px){
+    h1{
+        font-size:14px;
+        transform:translateX(40px)
+    }
+
+    img{
+        width:80px;
+        height:80px;
+        transform:translateY(-8px);
+    }
+
+    input{
+        width:60%;
+    }
+
+    .container{
+        height:100%;
+        gap:10px;
+    }
+
+   .box-title{
+    width:30%;
+   }
+
+   .box-tools{
+    width :100%;
+   }
+
+   .weather-info{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+   }
+
+   .today{
+    /* height:60%; */
+    border:none;
+   }
+
+   .primary-info{
+    width:85vw;
+   }
+
+   .city{
+    font-size:22px;
+    transform:translateX(0px);
+   }
+
+   .detail{
+    width:90vw;
+   }
+
+   .forecast{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    width:100vw;
+    height:100px;
+   }
+
+   .forecast-item{
+    width:70%;
+    margin-left:40px;
+   }
 }
